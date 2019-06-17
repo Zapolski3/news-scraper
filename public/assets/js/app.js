@@ -25,6 +25,7 @@ $(document).on("click", "p", function() {
     .then(function(data) {
        // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log(data);
 
       // console.log(data);
       // // The title of the article
@@ -85,7 +86,7 @@ $(document).on("click", "#saveNote", function() {
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "POST",
-    url: "/articles/" + thisId,
+    url: "/single-article/" + thisId,
     data: {
       // Value taken from title input
       title: $("#titleinput").val(),
@@ -98,12 +99,15 @@ $(document).on("click", "#saveNote", function() {
       // Log the response
       console.log(data);
       // Empty the notes section
-      $("#notes").empty();
+      // $("#notes").empty();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
-  $("#titleinput").val("");
-  $("#bodyinput").val("");
+  // $("#titleinput").val("");
+  // $("#bodyinput").val("");
+
+  // take to the main page
+  //  location.assign("/");
 });
 
 
