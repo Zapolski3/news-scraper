@@ -11,10 +11,10 @@
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
   // Empty the notes from the note section
-  $("#notes").empty();
+  // $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
-  console.log(thisId);
+  // console.log(thisId);
 
   // Now make an ajax call for the Article
   $.ajax({

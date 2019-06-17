@@ -5,9 +5,17 @@
 <ul>
   {{#each dbArticle}}
   	<li>
-  		<p><span class="label">ID:</span> {{this._id}}</p>
-      <p><span class="label">Name:</span> {{this.title}}</p>
-      <p><span class="label">Link:</span> {{this.link}}</p>
+  		<p data-id="{{this.id}}">
+      {{this._id}}<br>
+      {{this.title}}<br>
+      {{this.link}}</p>
+      {{!-- <p><span class="label">Name:</span> {{this.title}}</p>
+      <p><span class="label">Link:</span> {{this.link}}</p> --}}
+      {{!-- <div id="note">
+        <p>{{this.title}}</p>
+        <p>{{this}}</p>
+        <p></p>
+      </div> --}}
 
       <button data-id="{{this.id}}" class="delquote">Delete</button>
 
