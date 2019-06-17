@@ -1,14 +1,13 @@
-<h1>Quotes App</h1>
+<h1>News-scraper</h1>
 
-<p>Manage quotes with this app</p>
 
 <!-- Pass in data from server.js -->
 <ul>
-  {{#each quotes}}
+  {{#each dbArticle}}
   	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.quote}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
+  		<p><span class="label">ID:</span> {{this._id}}</p>
+      <p><span class="label">Name:</span> {{this.title}}</p>
+      <p><span class="label">Link:</span> {{this.link}}</p>
 
       <button data-id="{{this.id}}" class="delquote">Delete</button>
 
@@ -17,7 +16,7 @@
   {{/each}}
 </ul>
 
-<h2>Add a Quote</h2>
+{{!-- <h2>Add a Quote</h2>
 
 <form class="create-form">
 
@@ -32,4 +31,4 @@
   </div>
 
   <button type="submit">Add Quote</button>
-</form>
+</form> --}}
