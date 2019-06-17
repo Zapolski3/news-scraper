@@ -6,7 +6,7 @@
 //     $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
 //   }
 // });
-
+$(function () {
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
@@ -23,9 +23,10 @@ $(document).on("click", "p", function() {
   })
     // With that done, add the note information to the page
     .then(function(data) {
+      // console.log(data);
        // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-    console.log(data);
+    // event.preventDefault();
+    
 
       // console.log(data);
       // // The title of the article
@@ -79,25 +80,29 @@ $(document).on("click", "#removeArticle", function() {
 
 // When you click the savenote button
 // When you click the savenote button
-$(document).on("click", "#saveNote", function() {
+$(".form-group").on("click", "#saveNote", function() {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
-
+  let update = {
+    title: $("#titleinput").val(),
+    body: $("#bodyinput").val()
+    }
+    console.log(update);
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
-    method: "POST",
+    method: "PUT",
     url: "/single-article/" + thisId,
-    data: {
+    data: update
       // Value taken from title input
-      title: $("#titleinput").val(),
+      
       // Value taken from note textarea
-      body: $("#bodyinput").val()
-    }
+      
+    
   })
     // With that done
     .then(function(data) {
       // Log the response
-      console.log(data);
+    //  console.log(data);
       // Empty the notes section
       // $("#notes").empty();
     });
@@ -142,4 +147,4 @@ $(document).on("click", "#saveNote", function() {
 //   $("#titleinput").val("");
 //   $("#bodyinput").val("");
 // });
-
+});
