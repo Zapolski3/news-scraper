@@ -4,6 +4,7 @@
 <!-- Pass in data from server.js -->
 <ul>
   {{#each dbArticle}}
+  <a href="/single-article/{{this.id}}">
   	<li>
   		<p data-id="{{this.id}}">
       {{this._id}}<br>
@@ -16,11 +17,12 @@
         <p>{{this}}</p>
         <p></p>
       </div> --}}
-
+{{!-- 
       <button data-id="{{this.id}}" class="delquote">Delete</button>
 
-      <a href="/{{this.id}}">Update this quote</a>
+      <a href="/{{this.id}}">Update this quote</a> --}}
   	</li>
+    </a>
   {{/each}}
 </ul>
 

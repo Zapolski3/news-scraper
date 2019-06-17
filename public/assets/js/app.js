@@ -23,6 +23,9 @@ $(document).on("click", "p", function() {
   })
     // With that done, add the note information to the page
     .then(function(data) {
+       // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
       // console.log(data);
       // // The title of the article
       // $("#notes").append("<h2>" + data.title + "</h2>");
@@ -44,6 +47,7 @@ $(document).on("click", "p", function() {
       //   // Place the body of the note in the body textarea
       //   $("#bodyinput").val(data.note.body);
       // }
+      // location.assign("/");
     });
 });
 
@@ -74,7 +78,7 @@ $(document).on("click", "#removeArticle", function() {
 
 // When you click the savenote button
 // When you click the savenote button
-$(document).on("click", "#savenote", function() {
+$(document).on("click", "#saveNote", function() {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
 
