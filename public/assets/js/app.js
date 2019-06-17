@@ -80,19 +80,21 @@ $(document).on("click", "#removeArticle", function() {
 
 // When you click the savenote button
 // When you click the savenote button
-$(".form-group").on("click", "#saveNote", function() {
+$(document).on("click", "#saveNote", function(event) {
   // Grab the id associated with the article from the submit button
+  event.preventDefault();
   var thisId = $(this).attr("data-id");
-  let update = {
+  let updated = {
     title: $("#titleinput").val(),
     body: $("#bodyinput").val()
     }
-    console.log(update);
+    console.log(thisId);
+    console.log(updated);
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "PUT",
     url: "/single-article/" + thisId,
-    data: update
+    data: updated
       // Value taken from title input
       
       // Value taken from note textarea
@@ -102,7 +104,7 @@ $(".form-group").on("click", "#saveNote", function() {
     // With that done
     .then(function(data) {
       // Log the response
-    //  console.log(data);
+    //  console.log(thisId);
       // Empty the notes section
       // $("#notes").empty();
     });

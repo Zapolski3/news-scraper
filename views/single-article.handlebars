@@ -1,12 +1,12 @@
 <h1>Add a note to the article</h1>
 <div>
-  <h2>{{this.title}}</h2>
-  <a href="{{this.link}}">{{this.link}}</a>
+  <h2>{{this.article.title}}</h2>
+  <a href="{{this.article.link}}">{{this.article.link}}</a>
 </div>
 <br>
 <br>
 
-<form data-id="{{this.id}}" class="update-form">
+<form data-id="{{this.article.id}}" class="update-form">
 
   {{!-- <div class="form-group">
     <label for="forTitle">hello</label>
@@ -14,12 +14,12 @@
   </div> --}}
 <div class="form-group">
     
-    <textarea id="titleinput" name="quote" cols="40" value="{{this.note.title}}"></textarea><br>
+    <textarea id="titleinput" name="titleInput" cols="40">{{this.article.note.title}}</textarea><br>
   
   
-    <textarea id="bodyinput" name="quote" rows="8" cols="40" value="{{this.note.body}}"></textarea>
+    <textarea id="bodyinput" name="bodyInput" rows="8" cols="40">{{this.article.note.body}}</textarea>
   </div>
 
-  <button data-id="{{this.id}}" id="saveNote">Save note</button>
+  <button data-id="{{this.article.id}}" id="saveNote">Save note</button>
 </form>
 
