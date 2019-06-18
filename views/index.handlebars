@@ -1,12 +1,12 @@
-<h1>News-scraper</h1>
+<h1 style="text-align:center; border-color:aqua; border-style:groove;" id="main">News-scraper</h1>
 
 
 <!-- Pass in data from server.js -->
-<ul>
+
   {{#each dbArticle}}
   <a href="/single-article/{{this.id}}">
-  	<li>
-  		<p data-id="{{this.id}}">
+  	
+  		<p style="border-color:aqua; border-style:groove; width:700px; padding:5px;" data-id="{{this.id}}">
       {{this._id}}<br>
       {{this.title}}<br>
       {{this.link}}</p>
@@ -21,10 +21,9 @@
       <button data-id="{{this.id}}" class="delquote">Delete</button>
 
       <a href="/{{this.id}}">Update this quote</a> --}}
-  	</li>
+  
     </a>
   {{/each}}
-</ul>
 
 {{!-- <h2>Add a Quote</h2>
 
