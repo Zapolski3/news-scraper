@@ -139,9 +139,9 @@ app.get("/single-article/:id", function(req, res) {
 //=====================================================================================================================
 //=====================================================================================================================
 //=====================================================================================================================
-// Route for grabbing a specific Article by id, and remove it
-app.get("/delete/:id", function(req, res) {
-
+// Route for removing a note
+app.post("/single-article/:id", function(req, res) {
+  console.log(req.params.id);
   db.Note.findByIdAndRemove(req.params.id,
     function(error, removed) {
       // Log any errors from mongojs

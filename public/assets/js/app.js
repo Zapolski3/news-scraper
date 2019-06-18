@@ -54,20 +54,21 @@ $(document).on("click", "p", function() {
 });
 
 // When user clicks the delete button for a note
-$(document).on("click", "#removeArticle", function() {
+$(document).on("click", "#removeNote", function(event) {
+  event.preventDefault();
   // Save the p tag that encloses the button
    var thisId = $(this).attr("data-id");
    console.log(thisId);
   // Make an AJAX GET request to delete the specific note
   // this uses the data-id of the p-tag, which is linked to the specific note
   $.ajax({
-    type: "GET",
-    url: "/delete/" + thisId,
+    type: "POST",
+    url: "/single-article/" + thisId,
 
     // On successful call
     success: function(response) {
       // Remove the p-tag from the DOM
-      console.log("removed note");
+      console.log("note removed");
       // Clear the note and title inputs
       $("#titleinput").val("");
       $("#bodyinput").val("");
